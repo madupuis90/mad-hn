@@ -1,10 +1,13 @@
 :root {
-  /* DARK THEME */
-  --main-bg-color: #222;
-  --main-color: #f0f0f0;
-  --link-color: #f2f2f2;
-
-
+  /* MAIN THEME */
+  --main-primary-bg-color: #004643;
+  --main-secondary-bg-color: #e8e4e6;
+  --main-title-color: #fffffe;
+  --main-text-color: #abd1c6;
+  --main-accent-color: #e16162;
+  --main-btn-bg-color: #f9bc60;
+  --main-btn-text-color: #001e1d;
+  /* https://www.happyhues.co/palettes/10 */
 }
 
 html,
@@ -12,31 +15,22 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: var(--main-bg-color);
-  color: var(--main-color);
-  margin: 0;
-  padding: 0;
+  margin: auto auto;
+  background-color: var(--main-primary-bg-color);
+  color: var(--main-text-color);
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+h1 {
+  color: var(--main-title-color);
+}
+
 svg {
-  fill: var(--main-color);
-  background-color: var(--main-bg-color);
+  fill: var(--main-text-color);
+  background-color: var(--main-primary-bg-color);
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--link-color);
-}
 
 /* input,
 button,
