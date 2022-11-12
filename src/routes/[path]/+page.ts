@@ -16,8 +16,9 @@ export interface Story {
 
 export async function load(event: PageLoadEvent) {
   const page = +(event.url.searchParams.get('page') ?? 1);
+  const path = event.params.path;
 
-  const res = await event.fetch(`${PUBLIC_HEROKU_BASE_URL}/news?page=${page}`);
+  const res = await event.fetch(`${PUBLIC_HEROKU_BASE_URL}/${path}?page=${page}`);
   let stories: Story[] = await res.json();
 
   return { stories };

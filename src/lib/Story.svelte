@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Story } from 'src/routes/+page';
+	import type { Story } from 'src/routes/[path]/+page';
 
 	export let story: Story;
 </script>
@@ -13,8 +13,8 @@
 	</div>
 	<div class="content">
 		<div class="top">
-			<span class="title">{story.title}</span>
-			<span class="url">{story.url}</span>
+			<a href="{story.url}" class="title">{story.title}</a>
+			<span class="url">({story.url})</span>
 		</div>
 		<div class="bottom">
 			<span>by {story.user} {story.time_ago}</span>

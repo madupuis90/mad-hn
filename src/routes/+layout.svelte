@@ -7,10 +7,11 @@
 </script>
 
 <nav class="navmenu">
-	<a href="/">
+	<a class="home" href="/news">
 		<h1>[MAD] Hacker News</h1>
 	</a>
-  <a class="link" href="new">New</a>
+  <a class="link" href="newest">Newest</a>
+  <a class="link" href="best">Best</a>
   <a class="link" href="show">Show</a>
   <a class="link" href="ask">Ask</a>
   <a class="link" href="jobs">Jobs</a>
@@ -31,6 +32,9 @@
     color: var(--main-accent-color);
   }
 
+  .home {
+    text-decoration: none;
+  }
   .link {
     font-size: 1.2em;
     color: var(--main-title-color);

@@ -32,6 +32,19 @@ svg {
 }
 
 
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--main-text-color);
+}
+
 /* input,
 button,
 select,
