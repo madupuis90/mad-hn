@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-  import { navigating } from '$app/stores';
+	import { navigating } from '$app/stores';
 
 	$: currentPage = +($page.url.searchParams.get('page') ?? 1);
-  $: nextPage = newPageUrl(currentPage + 1);
+	$: nextPage = newPageUrl(currentPage + 1);
 	$: prevPage = newPageUrl(currentPage - 1);
 
 	function toHttpParams(obj: any): string {
@@ -22,13 +22,13 @@
 </script>
 
 <div class="flex">
-{#if $navigating}
-  Loading...
-{:else}
-  <a href={prevPage} class:disabled={currentPage === 1}>&lt; Prev </a>
-  <div>Page {currentPage}</div>
-  <a href={nextPage} class:disabled={$page.data.stories.length < 30}>More &gt;</a>
-{/if}
+	{#if $navigating}
+		Loading...
+	{:else}
+		<a href={prevPage} class:disabled={currentPage === 1}>&lt; Prev </a>
+		<div>Page {currentPage}</div>
+		<a href={nextPage} class:disabled={$page.data.stories.length < 30}>More &gt;</a>
+	{/if}
 </div>
 
 <style>
@@ -38,12 +38,12 @@
 		align-items: center;
 		justify-content: center;
 		gap: 3em;
-    padding: 1em 0;
-    font-weight: bold;
+		padding: 1em 0;
+		font-weight: bold;
 	}
-  .disabled {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
-  }
+	.disabled {
+		pointer-events: none;
+		cursor: default;
+		opacity: 0.6;
+	}
 </style>

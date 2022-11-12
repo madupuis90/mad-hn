@@ -4,10 +4,9 @@
 	import Pagination from '$lib/Pagination.svelte';
 
 	export let data: PageData;
-
 </script>
 
-<Pagination/>
+<Pagination />
 {#each data.stories as story}
 	<Story {story} />
 {/each}

@@ -6,19 +6,21 @@
 
 <div class="story">
 	<div class="side-header">
-    {#if story.points != null}
-		  <div class="points">{story.points}</div>
-    {/if}
+		{#if story.points}
+			<div class="points">{story.points}</div>
+		{/if}
 	</div>
 	<div class="content">
 		<div class="top">
-			<a href="{story.url}">{story.title}</a>
-			<span>({story.domain})</span>
+			<a href={story.url}>{story.title}</a>
+			{#if story.domain}
+				<span>({story.domain})</span>
+			{/if}
 		</div>
 		<div class="bottom">
-			<span>by</span> 
-      <a class="sub-link" href="/user/{story.user}">{story.user}</a>
-      <span> {story.time_ago}</span>
+			<span>by</span>
+			<a class="sub-link" href="/user/{story.user}">{story.user}</a>
+			<span> {story.time_ago}</span>
 			<span>|</span>
 			<span>hide</span>
 			<span>|</span>
@@ -37,10 +39,10 @@
 	}
 
 	.side-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
 		position: relative;
 		min-width: 4em;
 	}
@@ -54,9 +56,9 @@
 		flex-direction: column;
 	}
 
-  .sub-link, .sub-link:visited { 
-    color: var(----main-secondary-bg-color);
-    text-decoration: underline;
-  }
-
+	.sub-link,
+	.sub-link:visited {
+		color: var(----main-secondary-bg-color);
+		text-decoration: underline;
+	}
 </style>
