@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Story } from 'src/routes/[path]/+page';
+	import type { Story } from 'src/routes/[...path]/+page';
 
 	export let story: Story;
 </script>
@@ -7,21 +7,22 @@
 <div class="story">
 	<div class="side-header">
     {#if story.points != null}
-		<div class="points">{story.points}</div>
-		<div class="upvote-arrow"></div>
+		  <div class="points">{story.points}</div>
     {/if}
 	</div>
 	<div class="content">
 		<div class="top">
-			<a href="{story.url}" class="title">{story.title}</a>
-			<span class="url">({story.url})</span>
+			<a href="{story.url}">{story.title}</a>
+			<span>({story.domain})</span>
 		</div>
 		<div class="bottom">
-			<span>by {story.user} {story.time_ago}</span>
+			<span>by</span> 
+      <a class="sub-link" href="/user/{story.user}">{story.user}</a>
+      <span> {story.time_ago}</span>
 			<span>|</span>
 			<span>hide</span>
 			<span>|</span>
-			<span>{story.comments_count} comments</span>
+			<a class="sub-link" href="/story/{story.id}">{story.comments_count} comments</a>
 		</div>
 	</div>
 </div>
@@ -31,40 +32,31 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		padding: 10px;
+		padding: 10px 10px 10px 0;
 		border-bottom: 1px solid var(--main-accent-color);
 	}
 
 	.side-header {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 0.5em;
 		position: relative;
-		min-width: 4.5em;
+		min-width: 4em;
 	}
 	.points {
 		font-size: 1.2em;
 		font-weight: bold;
 		color: var(--main-title-color);
-    min-width: 2em;
 	}
 	.content {
 		display: flex;
 		flex-direction: column;
 	}
-	.top {
-	}
-	.bottom {
-	}
-	.upvote-arrow {
-		width: 0;
-		height: 0;
-		border: 0.4em solid;
-		border-left-color: transparent;
-		border-right-color: transparent;
-		border-top-color: transparent;
-		transform: translateY(-50%) scaleY(2);
-		color: var(--main-btn-bg-color);
-	}
+
+  .sub-link, .sub-link:visited { 
+    color: var(----main-secondary-bg-color);
+    text-decoration: underline;
+  }
+
 </style>

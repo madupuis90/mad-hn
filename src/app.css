@@ -31,18 +31,19 @@ svg {
   background-color: var(--main-primary-bg-color);
 }
 
-
-a {
-  color: var(--main-text-color);
+a,
+a:visited {
+  color: var(--main-btn-bg-color);
   text-decoration: none;
 }
 
 a:hover {
+  transition: text-decoration 1s;
   text-decoration: underline;
 }
 
-a:visited {
-  color: var(--main-text-color);
+hr {
+  color: var(--main-accent-color);
 }
 
 /* input,

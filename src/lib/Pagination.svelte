@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+  import { navigating } from '$app/stores';
 
 	$: currentPage = +($page.url.searchParams.get('page') ?? 1);
   $: nextPage = newPageUrl(currentPage + 1);
@@ -21,9 +22,13 @@
 </script>
 
 <div class="flex">
-	<a href={prevPage} class:disabled={currentPage === 1}>&lt; Prev </a>
-	<div>Page {currentPage}</div>
-	<a href={nextPage}>More &gt;</a>
+{#if $navigating}
+  Loading...
+{:else}
+  <a href={prevPage} class:disabled={currentPage === 1}>&lt; Prev </a>
+  <div>Page {currentPage}</div>
+  <a href={nextPage} class:disabled={$page.data.stories.length < 30}>More &gt;</a>
+{/if}
 </div>
 
 <style>
@@ -33,8 +38,9 @@
 		align-items: center;
 		justify-content: center;
 		gap: 3em;
+    padding: 1em 0;
+    font-weight: bold;
 	}
-
   .disabled {
     pointer-events: none;
     cursor: default;

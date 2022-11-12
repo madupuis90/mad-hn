@@ -1,20 +1,17 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
-	import { page } from '$app/stores';
+  import type { LayoutData } from './$types';
 	import '../app.css';
 
-	// export let data: LayoutData;
+	export let data: LayoutData;
 </script>
 
 <nav class="navmenu">
 	<a class="home" href="/news">
 		<h1>[MAD] Hacker News</h1>
 	</a>
-  <a class="link" href="newest">Newest</a>
-  <a class="link" href="best">Best</a>
-  <a class="link" href="show">Show</a>
-  <a class="link" href="ask">Ask</a>
-  <a class="link" href="jobs">Jobs</a>
+  {#each data.urls as url}
+    <a class="link" href="{url}">{url[0].toUpperCase() + url.slice(1)}</a>
+  {/each}
 </nav>
 <hr>
 <slot />
@@ -26,12 +23,7 @@
     gap: 2em;
 		height: 4em;
     margin: 10px;
-	}
-
-  hr {
-    color: var(--main-accent-color);
-  }
-
+  } 
   .home {
     text-decoration: none;
   }
