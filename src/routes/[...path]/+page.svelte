@@ -9,3 +9,4 @@
 {#each data.stories as story}
 	<Story {story} />
 {/each}
+<Pagination />

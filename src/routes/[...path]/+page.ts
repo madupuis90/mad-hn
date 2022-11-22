@@ -1,20 +1,7 @@
 import type { PageLoadEvent } from './$types';
 import { PUBLIC_HEROKU_BASE_URL, PUBLIC_HN_BASE_URL } from '$env/static/public';
 import { error } from '@sveltejs/kit';
-
-export interface Story {
-  id: number,
-  comments_count: number,
-  domain: string,
-  points: number,
-  time: number,
-  time_ago: string,
-  title: string,
-  type: string,
-  url: string,
-  user: string,
-};
-
+import type { Story } from 'src/models/story';
 
 export async function load(event: PageLoadEvent) {
   const path = event.params.path;
