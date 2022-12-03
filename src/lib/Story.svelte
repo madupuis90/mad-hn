@@ -1,11 +1,10 @@
 <script lang="ts">
 	import type { Story } from 'src/models/story';
 
-
-
 	export let story: Story;
 </script>
 
+asddasdsadas
 <div class="story">
 	<div class="side-header">
 		{#if story.points}
@@ -26,7 +25,9 @@
 			<span>|</span>
 			<span>hide</span>
 			<span>|</span>
-			<a class="sub-link" href="https://news.ycombinator.com/item?id={story.id}">{story.comments_count} comments</a>
+			<a class="sub-link" href="https://news.ycombinator.com/item?id={story.id}"
+				>{story.comments_count} comments</a
+			>
 		</div>
 	</div>
 </div>
