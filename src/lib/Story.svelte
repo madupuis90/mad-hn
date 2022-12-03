@@ -4,7 +4,6 @@
 	export let story: Story;
 </script>
 
-asddasdsadas
 <div class="story">
 	<div class="side-header">
 		{#if story.points}
